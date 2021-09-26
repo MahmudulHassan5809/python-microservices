@@ -25,13 +25,18 @@ services:
             context: .
             dockerfile: Dockerfile
         command: >
-            sh -c "python manage.py wait_for_db && 
-                    python consumer.py"
+            sh -c "python manage.py wait_for_db && python consumer.py"
+        environment:
+            - DB_HOST=db
+            - DB_NAME=ms_admin
+            - DB_USER=postgres
+            - DB_PASSWORD=152155809
         depends_on: 
             - db
 
     db:
         image: postgres:10-alpine
+        restart: always
         environment: 
             - POSTGRES_DB=ms_admin
             - POSTGRES_USER=postgres
