@@ -2,7 +2,7 @@
 
 import pika , json
 from app import Product, db
-params = pika.URLParameters('amqps://jmbfkave:dI0nCfktSxq7faZbtMEa-s9b3Lm8qvZP@beaver.rmq.cloudamqp.com/jmbfkave')
+params = pika.URLParameters('your cloudamqp url')
 
 connection = pika.BlockingConnection(params)
 
